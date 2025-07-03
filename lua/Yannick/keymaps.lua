@@ -10,6 +10,6 @@ vim.keymap.set('v', '<C-S-c>', '"+y')
 vim.keymap.set('n', '<C-S-v>', '"+p')
 vim.keymap.set('i', '<C-S-v>', '<C-R>+')
 
--- Telescope example
+-- Telescope
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
