@@ -1,0 +1,1 @@
+-- Zusätzliche Telescope Konfiguration (falls benötigt)
