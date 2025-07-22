@@ -9,12 +9,8 @@ require('telescope').setup{
             "%.git/",           -- Ignoriert alles im .git-Ordner
             "%.lock",           -- Ignoriert alle .lock-Dateien
             "%.png",            -- Ignoriert alle PNG-Bilder
-<<<<<<< HEAD
             "%.jpg",            -- Ignoriert alle JPG-Bilder
             "%.ogg",            -- Ignoriert alle OGG-Dateien
-=======
-            "%.jpg",            -- usw.
->>>>>>> 09912af93e3b76da44bb862f95910461de204c6c
             "build/",           -- Ignoriert Build-Ordner
             "%.cache/*",        -- Ignoriert Build-Ordner
             "%.cargo/*",        -- Ignoriert Build-Ordner
