@@ -1,4 +1,5 @@
 vim.o.background = "dark"
+vim.opt.cursorline = false
 vim.opt.guifont = "UbuntuMono Nerd Font:h24"
 vim.opt.termguicolors = true
 vim.opt.clipboard = "unnamedplus"
@@ -17,4 +18,6 @@ vim.opt.wrap = false
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
 vim.opt.undofile = true
+vim.opt.timeoutlen = 200
+-- vim.opt.autochdir = true
 vim.cmd("syntax on")
