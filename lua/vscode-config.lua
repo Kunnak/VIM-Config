@@ -16,7 +16,7 @@ keymap('n', '<leader>w', ':call VSCodeNotify("workbench.action.nextEditor")<CR>'
 keymap('n', '<leader>q', ':call VSCodeNotify("workbench.action.previousEditor")<CR>')
 
 -- === NAVIGATION ===
-keymap('n', '<leader>e', ':call VSCodeNotify("workbench.view.explorer")<CR>')
+keymap('n', '<leader>e', ':call VSCodeNotify("vsnetrw.open")<CR>')
 keymap('n', '<leader>f', ':call VSCodeNotify("workbench.action.quickOpen")<CR>')
 keymap('n', '<leader>p', ':call VSCodeNotify("workbench.action.showCommands")<CR>')
 
