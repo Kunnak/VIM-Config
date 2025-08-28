@@ -17,7 +17,7 @@ function SetCwdToNetrw()
   end
 end
 
--- Keymap: <leader>cd setzt das Arbeitsverzeichnis auf das aktuelle netrw-Verzeichnis
+-- Keymap: <leader>cd setzt das  Arbeitsverzeichnis auf das aktuelle netrw-Verzeichnis
 vim.keymap.set('n', '<leader>m', SetCwdToNetrw, { desc = 'Setze Arbeitsverzeichnis auf aktuelles netrw-Verzeichnis' })
 
 -- Telescope-Mappings
