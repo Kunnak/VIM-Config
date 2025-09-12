@@ -1,25 +1,32 @@
--- Basiseinstellungen und Module laden
-vim.g.mapleader = " "
+-- Konfiguration auswählen:
+-- "lazy" für deine aktuelle LazyVim-Konfiguration
+-- "plug" für die neue vim-plug + CoC Konfiguration
+-- "vscode" für die VSCode-spezifische Konfiguration
 
--- VSCode Erkennung und separate Konfiguration
+local config_mode = "plug"  
+
 if vim.g.vscode then
-    -- VSCode-spezifische Konfiguration
-    require("vscode-config")
+    -- VSCode 
+    require('vscode-config')
+elseif config_mode == "lazy" then
+    -- Lazy
+    require('Yannick.options')
+    require('Yannick.plugins')
+    require('Yannick.keymaps')
+    require('Yannick.theme')
+    require('Yannick.blink')
+    require('Yannick.lsp')
+    require('Yannick.telescope')
+    require('Yannick.noice')
+    require('Yannick.lualine')
+    require('Yannick.luasnip')
+    require('Yannick.inline-diagnostic')
+elseif config_mode == "plug" then
+    -- Plug 
+    require('init-plug')
 else
-    -- Standard Neovim Konfiguration
-    require("Yannick.options")
-    require("Yannick.keymaps")
-    require("Yannick.plugins")
-
-    -- Pluginspezifische Configs (nur für standalone Neovim)
-    require("Yannick.lsp")
-    require("Yannick.theme")
-    require("Yannick.lualine")
-    require("Yannick.noice")
-    require("Yannick.telescope")
-    require("Yannick.signs")
-    require("Yannick.inline-diagnostic")
-    require("Yannick.blink")
-    require("Yannick.luasnip")
+    -- None
+    print("Unbekannter config_mode: " .. config_mode)
+    print("Verwende 'lazy', 'plug' oder 'vscode'")
 end
 
