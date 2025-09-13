@@ -1,4 +1,4 @@
-# Neovim Konfiguration - Aufgeräumte Struktur
+# Neovim Konfiguration
 
 ## 📁 **Aktive Dateien**
 ```
@@ -48,18 +48,10 @@ init.lua                    # 🔄 Switcher zwischen Lazy/Plug Konfigurationen
 - `<leader>F` → Buffers
 - `<leader>h` → Help tags
 
-### 💡 **CoC Features:**
-- `<leader>k` → Dokumentation anzeigen (wie VSCode)
-- `gd` → Go to definition
-- `gr` → Go to references
-- `<leader>ca` → Code actions
-- `<leader>rn` → Rename
-
-### 🎨 **UI Verbesserungen:**
-- ✅ Nachrichten unten rechts (statt oben rechts)
+### 🎨 **UI:**
 - ✅ Command-Palette in der Bildschirmmitte
 - ✅ Graue Hintergründe für Telescope und CoC
-- ✅ Lualine Status Line (wie LazyVim)
+- ✅ Lualine Status Line
 - ✅ Gruvbox Theme mit transparentem Hintergrund
 
 ## 🔄 **Switcher-System:**
@@ -72,25 +64,14 @@ local config_mode = "plug"  -- Aktuelle Einstellung
 **Verfügbare Modi:**
 - **`"plug"`** → Plug + CoC Konfiguration (empfohlen)
   - ✅ Bessere Performance
-  - ✅ CoC Code-Completion (wie VSCode) 
+  - ✅ CoC Code-Completion
   - ✅ Alle deine gewünschten UI-Features
   
-- **`"lazy"`** → LazyVim Konfiguration (Original)
-  - ✅ Deine ursprüngliche Konfiguration
+- **`"lazy"`** → LazyVim Konfiguration
+  - ✅ ursprüngliche Konfiguration
   - ✅ LSP statt CoC
   - ✅ Lazy Plugin Manager
 
 - **`"vscode"`** → Automatisch in VSCode (wenn `vim.g.vscode` erkannt wird)
   - ✅ VSCode-spezifische Keybindings
   - ✅ Tab-Navigation mit `<leader>w/q`
-
-## 🗑️ **Erfolgreich aufgeräumt:**
-Diese Dateien wurden entfernt:
-```
-✅ lua/init-plug.lua            (ersetzt durch init-plug-final.lua)
-✅ lua/init-plug-enhanced.lua   (ersetzt durch init-plug-final.lua)  
-✅ mason.lua                   (nicht benötigt mit CoC)
-✅ test-completion.js          (Test-Datei)
-✅ test-snippets.xml           (Test-Datei)
-✅ lua/MIGRATION_GUIDE.md      (nicht mehr nötig)
-```

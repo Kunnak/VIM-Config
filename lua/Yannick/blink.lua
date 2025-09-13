@@ -1,4 +1,4 @@
--- Blink.cmp Konfiguration - VOLLSTÄNDIG WIEDERHERGESTELLT
+-- Blink.cmp Konfiguration
 require('blink.cmp').setup({
     appearance = {
         use_nvim_cmp_as_default = true,
@@ -79,7 +79,6 @@ require('blink.cmp').setup({
                 module = "blink.cmp.sources.lsp",
                 score_offset = 1000,
                 transform_items = function(_, items)
-                    -- Priorisiere UI5-spezifische Completions noch mehr
                     for _, item in ipairs(items) do
                         if item.source and item.source == "ui5_language_server" then
                             item.score_offset = 1500
@@ -116,7 +115,7 @@ require('blink.cmp').setup({
     },
     keymap = {
         preset = "enter",
-        ['<C-c>'] = { 'show', 'fallback' },  -- Manuelle Completion
+        ['<C-c>'] = { 'show', 'fallback' },
         ['<Tab>'] = { 'select_next', 'snippet_forward', 'fallback' },
         ['<S-Tab>'] = { 'select_prev', 'snippet_backward', 'fallback' },
     },

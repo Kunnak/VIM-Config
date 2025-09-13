@@ -1,15 +1,25 @@
--- Konfiguration auswählen:
--- "lazy" für deine aktuelle LazyVim-Konfiguration
--- "plug" für die neue vim-plug + CoC Konfiguration
--- "vscode" für die VSCode-spezifische Konfiguration
+-- ======================================================
+-- Neovim
+-- ======================================================
 
-local config_mode = "plug"  
+-- ======================================================
+-- Modis
+-- ======================================================
+-- "lazy"    = LazyVim Setup
+-- "plug"    = vim-plug Setup
 
+local config_mode = "plug"
+
+-- ======================================================
+-- VSCode
+-- ======================================================
 if vim.g.vscode then
-    -- VSCode 
     require('vscode-config')
+
+-- ======================================================  
+-- Lazyvim Setup
+-- ======================================================
 elseif config_mode == "lazy" then
-    -- Lazy
     require('Yannick.options')
     require('Yannick.plugins')
     require('Yannick.keymaps')
@@ -21,12 +31,11 @@ elseif config_mode == "lazy" then
     require('Yannick.lualine')
     require('Yannick.luasnip')
     require('Yannick.inline-diagnostic')
-elseif config_mode == "plug" then
-    -- Plug 
-    require('init-plug')
-else
-    -- None
-    print("Unbekannter config_mode: " .. config_mode)
-    print("Verwende 'lazy', 'plug' oder 'vscode'")
-end
 
+-- ======================================================
+-- Vim-Plug Setup
+-- ======================================================
+elseif config_mode == "plug" then
+    require('init-plug')
+
+end

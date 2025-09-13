@@ -1,5 +1,24 @@
 require('telescope').setup{
     defaults = {
+        -- UI Styling
+        winblend = 0,
+        border = {},
+        borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+        results_title = false,
+        layout_config = {
+            horizontal = {
+                prompt_position = "top",
+                preview_width = 0.55,
+                results_width = 0.8,
+            },
+            vertical = {
+                mirror = false,
+            },
+            width = 0.87,
+            height = 0.80,
+            preview_cutoff = 120,
+        },
+        -- Ignored Files/Directories
         file_ignore_patterns = {
             "^%.",           -- Ignoriert alle versteckten Dateien/Ordner im Root (z.B. .vscode, .git)
             "/%.",           -- Ignoriert alle versteckten Dateien/Ordner in Unterverzeichnissen

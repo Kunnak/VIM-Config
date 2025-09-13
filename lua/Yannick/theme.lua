@@ -1,20 +1,5 @@
 vim.cmd([[colorscheme gruvbox]])
 
-vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "netrw",
-  callback = function()
-    vim.opt_local.cursorline = false
-  end,
-})
-
--- Normale Zeilennummern auf hellgrau
-vim.api.nvim_set_hl(0, "LineNr", { fg = "#aaaaaa" })
-
--- Aktuelle Zeilennummer auf orange und fett
-vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#ff8800", bold = true })
-
 -- Gruvbox Farben für Completion Menüs
 local gruvbox_colors = {
     bg0 = "#282828",
@@ -36,6 +21,42 @@ local gruvbox_colors = {
     purple = "#d3869b",
     red = "#fb4934",
 }
+
+vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+vim.opt_local.cursorline = false
+
+-- Normale Zeilennummern auf hellgrau
+vim.api.nvim_set_hl(0, "LineNr", { fg = "#aaaaaa" })
+
+-- Aktuelle Zeilennummer auf orange und fett
+vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#fe8019", bold = true })
+
+-- Farbe der Strings
+vim.api.nvim_set_hl(0, "String", { fg = gruvbox_colors.green })
+
+-- Quick Help (<F1>) in Gruvbox Orange
+vim.api.nvim_set_hl(0, "QuickHelp", { fg = gruvbox_colors.green, bold = true })
+vim.api.nvim_set_hl(0, "HelpKey", { fg = gruvbox_colors.green , bold = true })
+vim.api.nvim_set_hl(0, "HelpCommand", { fg = gruvbox_colors.green  })
+vim.api.nvim_set_hl(0, "helpHeader", { fg = gruvbox_colors.green , bold = true })
+vim.api.nvim_set_hl(0, "helpSectionDelim", { fg = gruvbox_colors.green  })
+
+-- Netrw Ordner-Farben in Gruvbox Orange
+vim.api.nvim_set_hl(0, "netrwDir", { fg = gruvbox_colors.orange })
+vim.api.nvim_set_hl(0, "netrwClassify", { fg = gruvbox_colors.green })
+vim.api.nvim_set_hl(0, "netrwTreeBar", { fg = gruvbox_colors.green })
+vim.api.nvim_set_hl(0, "netrwQuickHelp", { fg = gruvbox_colors.orange })
+vim.api.nvim_set_hl(0, "netrwHelpCmd", { fg = gruvbox_colors.orange })
+vim.api.nvim_set_hl(0, "netrwCmdSep", { fg = gruvbox_colors.green })
+vim.api.nvim_set_hl(0, "netrwComment", { fg = gruvbox_colors.green })
+vim.api.nvim_set_hl(0, "netrwList", { fg = gruvbox_colors.yellow })
+vim.api.nvim_set_hl(0, "netrwVersion", { fg = gruvbox_colors.orange })
+vim.api.nvim_set_hl(0, "netrwBanner", { fg = gruvbox_colors.orange })
+vim.api.nvim_set_hl(0, "netrwPlain", { fg = gruvbox_colors.fg0 })
+
+vim.api.nvim_set_hl(0, "netrwHdr", { fg = gruvbox_colors.red, bold = true })
+vim.api.nvim_set_hl(0, "netrwCwd", { fg = gruvbox_colors.red, bold = true })
 
 -- Blink.cmp Highlights mit Gruvbox-Farben
 vim.api.nvim_set_hl(0, "BlinkCmpMenu", { bg = gruvbox_colors.bg1, fg = gruvbox_colors.fg1 })
