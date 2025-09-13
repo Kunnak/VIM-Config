@@ -45,7 +45,7 @@ require('blink.cmp').setup({
         menu = {
             enabled = true,
             min_width = 30,
-            max_height = 15,
+            max_height = 10,
             border = 'single',
             winblend = 0,
             winhighlight = 'Normal:BlinkCmpMenu,FloatBorder:BlinkCmpMenuBorder,CursorLine:BlinkCmpMenuSelection,Search:None',
@@ -90,7 +90,7 @@ require('blink.cmp').setup({
             buffer = {
                 name = "Buffer",
                 module = "blink.cmp.sources.buffer",
-                score_offset = 500,
+                score_offset = 800,
             },
             path = {
                 name = "Path",
@@ -100,7 +100,7 @@ require('blink.cmp').setup({
             snippets = {
                 name = "Snippets",
                 module = "blink.cmp.sources.snippets",
-                score_offset = 800,
+                score_offset = 500,
                 opts = {
                     friendly_snippets = true,
                     search_paths = { vim.fn.stdpath("config") .. "/snippets" },
@@ -120,6 +120,9 @@ require('blink.cmp').setup({
         ['<S-Tab>'] = { 'select_prev', 'snippet_backward', 'fallback' },
     },
     fuzzy = {
-        implementation = "prefer_rust_with_warning",
+        -- Einfache, stabile Fuzzy-Konfiguration
+        use_frecency = false,
+        use_proximity = false,
+        max_items = 50,
     },
 })

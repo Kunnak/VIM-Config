@@ -53,7 +53,7 @@ vim.call('plug#end')
 -- Plugin Konfiguration
 -- ==================================================================================
 vim.defer_fn(function()
-    
+
     -- Netrw Styling
     vim.api.nvim_create_autocmd("FileType", {
         pattern = "netrw",
@@ -61,7 +61,7 @@ vim.defer_fn(function()
             vim.opt_local.cursorline = false
         end,
     })
-    
+
     -- Theme & Farben
     pcall(function()
         require('Yannick.theme')
@@ -70,7 +70,7 @@ vim.defer_fn(function()
     -- Telescope (mit Styling)
     pcall(function()
         require('Yannick.telescope')
-        
+
         -- Telescope UI-Styling
         vim.cmd([[
             highlight TelescopeNormal guibg=#2a2a2a
@@ -81,7 +81,7 @@ vim.defer_fn(function()
             highlight TelescopePreviewTitle guibg=#5a5a5a guifg=#ffffff
             highlight TelescopeResultsTitle guibg=#5a5a5a guifg=#ffffff
         ]])
-        
+
         -- Telescope Keybindings nochmals setzen (Sicherheit)
         local builtin = require('telescope.builtin')
         vim.keymap.set('n', '<leader>f', builtin.find_files, { desc = 'Telescope: Find Files' })
@@ -114,12 +114,12 @@ vim.defer_fn(function()
     local coc_success, coc_err = pcall(function()
         require('Yannick.coc')
     end)
-    
+
     if not coc_success then
         print("CoC-Fehler: " .. tostring(coc_err))
         print("Versuche CoC-Installation zu überprüfen...")
     else
         print("CoC erfolgreich geladen!")
     end
-    
-end, 200)  
+
+end, 200)

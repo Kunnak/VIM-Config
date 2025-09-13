@@ -8,6 +8,12 @@
     "suggest.floatEnable": false,
     "suggest.detailMaxLength": 100,
     "suggest.snippetIndicator": "►",
+    "suggest.minTriggerInputLength": 2,
+    "suggest.acceptSuggestionOnCommitCharacter": true,
+    "suggest.lowPrioritySourceLimit": 5,
+    "suggest.highPrioritySourceLimit": 10,
+    "suggest.removeDuplicateItems": true,
+    "suggest.localityBonus": true,
     
     "coc.preferences.extensionUpdateCheck": "daily",
     "coc.preferences.useQuickfixForLocations": true,
@@ -108,5 +114,12 @@
     "java.format.settings.profile": "custom",
     "java.format.settings.url": "",
     "java.format.enabled": true,
-    "snippets.ultisnips.pythonPrompt": false,
+    
+    "languageserver": {
+        "lua": {
+            "command": "lua-lsp",
+            "filetypes": ["lua"]
+        }
+    },
+    "snippets.ultisnips.pythonPrompt": false
 }

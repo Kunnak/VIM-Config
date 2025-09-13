@@ -144,3 +144,45 @@ vim.diagnostic.config({
 vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { desc = 'Show Diagnostics' })
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Previous Diagnostic' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Next Diagnostic' })
+
+-- ==================================================================================
+-- LSP-ähnliche User Commands für CoC (damit :LspInfo etc. funktioniert)
+-- ==================================================================================
+
+-- :LspInfo -> :CocInfo
+vim.api.nvim_create_user_command('LspInfo', function()
+    vim.cmd('CocInfo')
+end, { desc = 'Show CoC LSP Information' })
+
+-- :LspRestart -> :CocRestart  
+vim.api.nvim_create_user_command('LspRestart', function()
+    vim.cmd('CocRestart')
+end, { desc = 'Restart CoC LSP' })
+
+-- :LspStart -> CoC Services aktivieren
+vim.api.nvim_create_user_command('LspStart', function()
+    vim.cmd('CocStart')
+end, { desc = 'Start CoC LSP' })
+
+-- :LspStop -> CoC Services deaktivieren  
+vim.api.nvim_create_user_command('LspStop', function()
+    vim.cmd('CocDisable')
+end, { desc = 'Stop CoC LSP' })
+
+-- :LspLog -> CoC Logs anzeigen
+vim.api.nvim_create_user_command('LspLog', function()
+    vim.cmd('CocCommand workspace.showOutput')
+end, { desc = 'Show CoC LSP Logs' })
+
+-- Zusätzliche nützliche CoC-Befehle als Aliases
+vim.api.nvim_create_user_command('LspDiagnostics', function()
+    vim.cmd('CocList diagnostics')
+end, { desc = 'Show LSP Diagnostics' })
+
+vim.api.nvim_create_user_command('LspCommands', function()
+    vim.cmd('CocList commands')
+end, { desc = 'Show Available LSP Commands' })
+
+vim.api.nvim_create_user_command('LspExtensions', function()
+    vim.cmd('CocList extensions')
+end, { desc = 'Show LSP Extensions' })
