@@ -20,17 +20,17 @@ vim.g.coc_global_extensions = {
     'coc-json',                          -- JSON ✅
     'coc-yaml',                          -- YAML ✅
     'coc-xml',                           -- XML ✅
-    
+
     -- Programming Languages
     'coc-java',                          -- Java ✅
     'coc-lua',                           -- Lua ✅
     'coc-pyright',                       -- Python (optional)
-    
+
     -- Utilities
     'coc-snippets',                      -- Code Snippets
     'coc-pairs',                         -- Auto-Pairing
     'coc-eslint',                        -- ESLint für JavaScript
-    
+
     -- SAP UI5 Support (über TypeScript/JavaScript)
     -- SAP UI5 wird über coc-tsserver unterstützt
 }
@@ -186,3 +186,66 @@ end, { desc = 'Show Available LSP Commands' })
 vim.api.nvim_create_user_command('LspExtensions', function()
     vim.cmd('CocList extensions')
 end, { desc = 'Show LSP Extensions' })
+
+-- ==================================================================================
+-- CoC Gruvbox Highlights - Optimierte spaltenbasierte Darstellung
+-- ==================================================================================
+
+-- Gruvbox Farben
+local gruvbox = {
+    bg0 = "#282828",
+    bg1 = "#3c3836", 
+    bg2 = "#504945",
+    bg3 = "#665c54",
+    fg0 = "#fbf1c7",
+    fg1 = "#ebdbb2",
+    fg4 = "#a89984",
+    orange = "#fe8019",
+    yellow = "#fabd2f",
+    green = "#b8bb26",
+    aqua = "#8ec07c",
+    blue = "#83a598",
+    purple = "#d3869b",
+    red = "#fb4934",
+}
+
+-- CoC Floating Window (Hauptmenü)
+vim.api.nvim_set_hl(0, "CocFloating", { bg = gruvbox.bg1, fg = gruvbox.fg1 })
+vim.api.nvim_set_hl(0, "CocFloatingBorder", { bg = gruvbox.bg1, fg = gruvbox.bg3 })
+
+-- CoC Completion Menu
+vim.api.nvim_set_hl(0, "CocPumMenu", { bg = gruvbox.bg1, fg = gruvbox.fg1 })
+vim.api.nvim_set_hl(0, "CocPumSearch", { bg = gruvbox.bg2, fg = gruvbox.blue, bold = true })  -- Inc-search blau
+vim.api.nvim_set_hl(0, "CocPumDetail", { bg = gruvbox.bg1, fg = gruvbox.fg4 })
+
+-- Selected Item (aktuelle Auswahl)
+vim.api.nvim_set_hl(0, "CocMenuSel", { bg = gruvbox.bg2, fg = gruvbox.fg0, bold = true })
+
+-- Spalten-spezifische Highlights
+-- Spalte 1: Vorschlag (Label)
+vim.api.nvim_set_hl(0, "CocPumVirtualText", { fg = gruvbox.fg1 })
+
+-- Spalte 2: Icons (Kind) - verschiedene Farben für verschiedene Typen
+vim.api.nvim_set_hl(0, "CocSymbolFunction", { fg = gruvbox.blue })     -- Funktionen blau
+vim.api.nvim_set_hl(0, "CocSymbolMethod", { fg = gruvbox.blue })       -- Methoden blau
+vim.api.nvim_set_hl(0, "CocSymbolVariable", { fg = gruvbox.aqua })     -- Variablen aqua
+vim.api.nvim_set_hl(0, "CocSymbolField", { fg = gruvbox.green })       -- Fields grün
+vim.api.nvim_set_hl(0, "CocSymbolProperty", { fg = gruvbox.green })    -- Properties grün
+vim.api.nvim_set_hl(0, "CocSymbolClass", { fg = gruvbox.yellow })      -- Klassen gelb
+vim.api.nvim_set_hl(0, "CocSymbolInterface", { fg = gruvbox.yellow })  -- Interfaces gelb
+vim.api.nvim_set_hl(0, "CocSymbolEnum", { fg = gruvbox.yellow })       -- Enums gelb
+vim.api.nvim_set_hl(0, "CocSymbolKeyword", { fg = gruvbox.red })       -- Keywords rot
+vim.api.nvim_set_hl(0, "CocSymbolSnippet", { fg = gruvbox.purple })    -- Snippets lila
+vim.api.nvim_set_hl(0, "CocSymbolConstant", { fg = gruvbox.orange })   -- Konstanten orange
+vim.api.nvim_set_hl(0, "CocSymbolOperator", { fg = gruvbox.fg1 })      -- Operatoren normal
+
+-- Spalte 3: Herkunft (Menu) - verschiedene Farben für verschiedene Quellen
+vim.api.nvim_set_hl(0, "CocPumMenuLSP", { fg = gruvbox.green })        -- LSP grün
+vim.api.nvim_set_hl(0, "CocPumMenuSnippets", { fg = gruvbox.purple })  -- Snippets lila
+vim.api.nvim_set_hl(0, "CocPumMenuBuffer", { fg = gruvbox.aqua })      -- Buffer aqua
+vim.api.nvim_set_hl(0, "CocPumMenuFile", { fg = gruvbox.yellow })      -- File gelb
+vim.api.nvim_set_hl(0, "CocPumMenuPath", { fg = gruvbox.blue })        -- Path blau
+
+-- Scrollbar
+vim.api.nvim_set_hl(0, "CocPumThumb", { bg = gruvbox.bg3 })
+vim.api.nvim_set_hl(0, "CocPumSbar", { bg = gruvbox.bg2 })

@@ -1,36 +1,39 @@
--- Setze die Highlight-Gruppe explizit, bevor notify geladen wird
+-- Notify und Noice Konfiguration
 vim.cmd([[highlight NotifyBackground guibg=#000000]])
 
 require("notify").setup({
     background_colour = "#000000",
-    top_down = false,               -- Notifications von unten nach oben
-    stages = "fade_in_slide_out",   -- Animation
-    render = "compact",             -- Kompakte Darstellung
-    timeout = 3000,                 -- 3 Sekunden anzeigen
-    max_width = 50,                 -- Maximale Breite
-    max_height = 10,                -- Maximale Höhe
-    minimum_width = 30,             -- Minimale Breite
-    fps = 30,                       -- Animation FPS
+    top_down = false,
+    stages = "fade_in_slide_out",
+    render = "wrapped-compact",
+    timeout = 5000,
+    max_width = function()
+        return math.floor(vim.o.columns * 0.9)
+    end,
+    max_height = 10,
+    minimum_width = 50,
+    fps = 30,
     icons = {
-        ERROR = "",
-        WARN = "",
-        INFO = "",
-        DEBUG = "",
-        TRACE = "✎",
+        ERROR = "✖ ",
+        WARN = "⚠ ",
+        INFO = "ℹ ",
+        DEBUG = " ",
+        TRACE = "✎ ",
     },
+    level = vim.log.levels.WARN,
 })
 
 vim.notify = require("notify")
 
 require("noice").setup({
     presets = { 
-        command_palette = true,          -- Command-Palette in der Mitte
-        long_message_to_split = true,    -- Lange Nachrichten in Split
-        inc_rename = false,              -- Kein inc-rename
-        lsp_doc_border = true,           -- LSP Doc Border
+        command_palette = true,
+        long_message_to_split = true,
+        inc_rename = false,
+        lsp_doc_border = true,
     },
     cmdline = {
-        view = "cmdline_popup",          -- Popup in der Mitte
+        view = "cmdline_popup",
         format = {
             cmdline = { pattern = "^:", icon = "", lang = "vim" },
             search_down = { kind = "search", pattern = "^/", icon = "🔍", lang = "regex" },
@@ -41,11 +44,11 @@ require("noice").setup({
         },
     },
     messages = {
-        view = "notify",                 -- Nachrichten über notify (unten rechts)
+        view = "notify",
     },
     notify = {
         enabled = true,
-        view = "notify",                 -- Notifications unten rechts
+        view = "notify",
     },
     lsp = {
         override = {
