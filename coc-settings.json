@@ -131,7 +131,7 @@
     
     "languageserver": {
         "lua": {
-            "command": "lua-lsp",
+            "command": "lua-language-server",
             "filetypes": ["lua"]
         }
     },

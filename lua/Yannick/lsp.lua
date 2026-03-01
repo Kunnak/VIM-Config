@@ -92,9 +92,40 @@ lspconfig.lemminx.setup{
 }
 
 lspconfig.pyright.setup{}
+
+-- KORRIGIERT: Vollständige lua_ls Konfiguration mit explizitem cmd
 lspconfig.lua_ls.setup({
-  settings = { Lua = { diagnostics = { globals = { 'vim' }, }, }, },
+  cmd = { "lua-language-server" },  -- EXPLIZIT hinzugefügt
+  on_attach = on_attach,            -- on_attach hinzugefügt für Konsistenz
+  settings = {
+    Lua = {
+      runtime = {
+        version = 'LuaJIT',         -- Für Neovim essentiell
+        path = vim.split(package.path, ';'),
+      },
+      diagnostics = {
+        globals = { 'vim' },        -- 'vim' als global erkannt
+        disable = { "lowercase-global" },
+      },
+      workspace = {
+        library = {
+          [vim.fn.expand('$VIMRUNTIME/lua')] = true,
+          [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
+        },
+        checkThirdParty = false,    -- Verhindert "Configure Lua Runtime" Popup
+        maxPreload = 10000,
+        preloadFileSize = 10000,
+      },
+      telemetry = {
+        enable = false,             -- Telemetrie deaktiviert
+      },
+      completion = {
+        callSnippet = "Replace",    -- Funktionsaufrufe ersetzen statt einfügen
+      },
+    },
+  },
 })
+
 lspconfig.clangd.setup {
   cmd = { "clangd", "--background-index" },
   filetypes = { "c", "cpp", "objc", "objcpp" },

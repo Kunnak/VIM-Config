@@ -37,5 +37,4 @@ elseif config_mode == "lazy" then
 -- ======================================================
 elseif config_mode == "plug" then
     require('init-plug')
-
 end

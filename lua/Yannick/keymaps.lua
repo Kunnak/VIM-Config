@@ -9,36 +9,46 @@
 -- DATEI-EXPLORER (Netrw)
 -- ==================================================================================
 
-vim.keymap.set("n", "<leader>e", vim.cmd.Ex, { 
-    desc = "Netrw Explorer öffnen" 
+vim.keymap.set("n", "<leader>e", vim.cmd.Ex, {
+    desc = "Netrw Explorer öffnen"
 })
 vim.keymap.set("n", "<leader>E", function()
     vim.cmd('tabnew')
     vim.cmd.Ex()
-end, { 
-    desc = "Netrw in neuem Tab" 
+end, {
+    desc = "Netrw in neuem Tab"
+})
+
+-- ==================================================================================
+-- NAVIGATION
+-- ==================================================================================
+vimkeymap.set("n", "<C-j>", "<C-d>zz", {
+    desc = "Halbe Seite nach unten scrollen (zentriert)"
+})
+vim.keymap.set("n", "<C-k>", "<C-u>zz", {
+    desc = "Halbe Seite nach oben scrollen (zentriert)"
 })
 
 -- ==================================================================================
 -- TAB-NAVIGATION
 -- ==================================================================================
 
-vim.keymap.set("n", "<leader>w", 'gt', { 
-    desc = "Nächster Tab" 
+vim.keymap.set("n", "<leader>t", 'gt', {
+    desc = "Nächster Tab"
 })
-vim.keymap.set("n", "<leader>q", 'gT', { 
-    desc = "Vorheriger Tab" 
+vim.keymap.set("n", "<leader>q", 'gT', {
+    desc = "Vorheriger Tab"
 })
-vim.keymap.set("n", "<leader>T", ":tabnew<CR>", { 
-    desc = "Neuer Tab" 
+vim.keymap.set("n", "<leader>T", ":tabnew<CR>", {
+    desc = "Neuer Tab"
 })
 
 -- ==================================================================================
 -- UTILITIES
 -- ==================================================================================
 
-vim.keymap.set("n", "<leader><Esc>", ":nohlsearch<CR>", { 
-    desc = "Such-Highlights löschen" 
+vim.keymap.set("n", "<leader><Esc>", ":nohlsearch<CR>", {
+    desc = "Such-Highlights löschen"
 })
 
 -- ==================================================================================
@@ -59,8 +69,8 @@ local function change_to_current_dir()
     end
 end
 
-vim.keymap.set('n', '<leader>m', change_to_current_dir, { 
-    desc = 'Zum Datei-Verzeichnis wechseln' 
+vim.keymap.set('n', '<leader>m', change_to_current_dir, {
+    desc = 'Zum Datei-Verzeichnis wechseln'
 })
 
 -- ==================================================================================
@@ -71,25 +81,25 @@ vim.keymap.set('n', '<leader>m', change_to_current_dir, {
 local function setup_telescope_keymaps()
     local ok, builtin = pcall(require, 'telescope.builtin')
     if ok then
-        vim.keymap.set('n', '<leader>f', builtin.find_files, { 
-            desc = 'Telescope: Find Files' 
+        vim.keymap.set('n', '<leader>f', builtin.find_files, {
+            desc = 'Telescope: Find Files'
         })
-        vim.keymap.set('n', '<leader>g', builtin.live_grep, { 
-            desc = 'Telescope: Live Grep' 
+        vim.keymap.set('n', '<leader>g', builtin.live_grep, {
+            desc = 'Telescope: Live Grep'
         })
-        vim.keymap.set('n', '<leader>F', builtin.buffers, { 
-            desc = 'Telescope: Buffers' 
+        vim.keymap.set('n', '<leader>F', builtin.buffers, {
+            desc = 'Telescope: Buffers'
         })
-        vim.keymap.set('n', '<leader>h', builtin.help_tags, { 
-            desc = 'Telescope: Help Tags' 
+        vim.keymap.set('n', '<leader>h', builtin.help_tags, {
+            desc = 'Telescope: Help Tags'
         })
     else
         -- Fallback wenn Telescope nicht verfügbar
-        vim.keymap.set('n', '<leader>f', ':find ', { 
-            desc = 'Find Files (native)' 
+        vim.keymap.set('n', '<leader>f', ':find ', {
+            desc = 'Find Files (native)'
         })
-        vim.keymap.set('n', '<leader>F', ':buffers<CR>', { 
-            desc = 'Show Buffers' 
+        vim.keymap.set('n', '<leader>F', ':buffers<CR>', {
+            desc = 'Show Buffers'
         })
     end
 end

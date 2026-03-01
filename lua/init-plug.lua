@@ -28,7 +28,7 @@ Plug('rcarriga/nvim-notify')                                            -- Benac
 
 -- Telescope (Fuzzy Finder)
 Plug('nvim-lua/plenary.nvim')                                           -- Lua-Utilities
-Plug('nvim-telescope/telescope.nvim', {tag = '0.1.5'})                  -- Fuzzy Finder
+Plug('nvim-telescope/telescope.nvim', {branch = 'master'})              -- Fuzzy Finder (neueste Version)
 Plug('nvim-telescope/telescope-fzf-native.nvim', {['do'] = 'make'})     -- Performance
 
 -- CoC (LSP & Code Completion)
@@ -100,7 +100,7 @@ vim.defer_fn(function()
         require('Yannick.lualine')
     end)
 
-    -- Treesitter
+    -- Treesitter (mit Compatibility-Fix laden)
     pcall(function()
         require('Yannick.treesitter')
     end)

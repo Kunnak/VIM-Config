@@ -3,7 +3,7 @@ vim.cmd([[colorscheme gruvbox]])
 -- Gruvbox Farben für Completion Menüs
 local gruvbox_colors = {
     bg0 = "#282828",
-    bg1 = "#3c3836", 
+    bg1 = "#3c3836",
     bg2 = "#504945",
     bg3 = "#665c54",
     bg4 = "#7c6f64",
@@ -34,6 +34,12 @@ vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#fe8019", bold = true })
 
 -- Farbe der Strings
 vim.api.nvim_set_hl(0, "String", { fg = gruvbox_colors.green })
+
+-- Kommentare: ausgegraut (gruvbox gray) und NICHT kursiv
+vim.api.nvim_set_hl(0, "Comment", { fg = gruvbox_colors.gray, italic = false })
+
+-- Treesitter-Kommentare ebenfalls ausgegraut ohne kursiv (falls aktiviert)
+vim.api.nvim_set_hl(0, "@comment", { fg = gruvbox_colors.gray, italic = false })
 
 -- Quick Help (<F1>) in Gruvbox Orange
 vim.api.nvim_set_hl(0, "QuickHelp", { fg = gruvbox_colors.green, bold = true })
